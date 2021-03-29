@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EndscreenButtons : MonoBehaviour
+public class EndButtons : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,8 @@ public class EndscreenButtons : MonoBehaviour
         
     }
 
-    void EndButton()
+    public void EndButton()
     {
-
+        SceneManager.LoadScene("TitleScene");
     }
 }
