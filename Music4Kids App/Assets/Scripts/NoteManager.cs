@@ -12,6 +12,9 @@ public class NoteManager : MonoBehaviour
 
     private int counter = 0;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip C1, D1, E1, F1, G1, A2, B2, C2, D2, E2, F2, G2, A3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,8 @@ public class NoteManager : MonoBehaviour
 
     public void ActivateNote(string n)
     {
+        PlaySound(n);
+
         foreach (RawImage ri in notes) ri.enabled = false;
         notes[NoteToNumber(n)].enabled = true;
 
@@ -59,6 +64,18 @@ public class NoteManager : MonoBehaviour
         {
             notes[0].transform.GetChild(0).GetComponent<RawImage>().enabled = false;
             notes[notes.Count - 1].transform.GetChild(0).GetComponent<RawImage>().enabled = false;
+        }
+    }
+
+    private void PlaySound(string n)
+    {
+        if (String.Equals(n, "C1"))
+        {
+            audioSource.PlayOneShot(C1);
+        }
+        else if (String.Equals(n, "D1"))
+        {
+            audioSource.PlayOneShot(D1);
         }
     }
 }
