@@ -24,18 +24,20 @@ public class NoteManager : MonoBehaviour
         }
         Debug.Log(notes.Count);
         notes[0].enabled = false;
+        int choice = (int)UnityEngine.Random.Range(0, note_arr.Length - 1);
+        ActivateNote(note_arr[choice]);
     }
 
     // Update is called once per frame
     void Update()
     {
-        counter++;
+        /*counter++;
         if (counter > 1000)
         {
             counter = 0;
             int choice = (int)UnityEngine.Random.Range(0, note_arr.Length - 1);
             ActivateNote(note_arr[choice]);
-        }
+        } */
     }
 
     private int NoteToNumber(string n)
@@ -45,10 +47,11 @@ public class NoteManager : MonoBehaviour
 
     public void ActivateNote(string n)
     {
-        PlaySound(n);
+        if (GameManager.instance.sounds) PlaySound(n);
 
         foreach (RawImage ri in notes) ri.enabled = false;
         notes[NoteToNumber(n)].enabled = true;
+        GameManager.instance.currentNote = n.Substring(0, 1);
 
         if (string.Equals(n, "C1")) // the lines for the notes at the top/bottom
         {
