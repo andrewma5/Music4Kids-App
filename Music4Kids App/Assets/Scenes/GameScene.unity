@@ -2008,19 +2008,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1380430004}
-  C1: {fileID: 0}
-  D1: {fileID: 0}
-  E1: {fileID: 0}
-  F1: {fileID: 0}
-  G1: {fileID: 0}
-  A2: {fileID: 0}
-  B2: {fileID: 0}
-  C2: {fileID: 0}
-  D2: {fileID: 0}
-  E2: {fileID: 0}
-  F2: {fileID: 0}
-  G2: {fileID: 0}
-  A3: {fileID: 0}
+  C1: {fileID: 8300000, guid: c35b4767b469c494da9ef48bf480b889, type: 3}
+  D1: {fileID: 8300000, guid: a33a822edc8fc0043be4b3887d5584e5, type: 3}
+  E1: {fileID: 8300000, guid: bb9105accf70af54da4dd260e786f54b, type: 3}
+  F1: {fileID: 8300000, guid: fade5d43bcb15f341a66b8dafcf3bbee, type: 3}
+  G1: {fileID: 8300000, guid: 4ea812232fea2824e879d522325007c9, type: 3}
+  A2: {fileID: 8300000, guid: b0fbc24d8cc846842a9722c5273696e5, type: 3}
+  B2: {fileID: 8300000, guid: 8cf056e40ac59b347ac6505d9850e931, type: 3}
+  C2: {fileID: 8300000, guid: 466d68d97e33b6148850ed32e5d3fb42, type: 3}
+  D2: {fileID: 8300000, guid: 8e1a5d98b76708d458320a3c1dcd862b, type: 3}
+  E2: {fileID: 8300000, guid: 90a21f77e7a5f9e428dc7890a80a6154, type: 3}
+  F2: {fileID: 8300000, guid: 8d450f321d7d1bb439b446562ca90575, type: 3}
+  G2: {fileID: 8300000, guid: c6895aafb27950943877452fcf1f7f49, type: 3}
+  A3: {fileID: 8300000, guid: 67cc177327174a24eaccbe65cf55b80c, type: 3}
   livesText: {fileID: 905379479}
   scoreText: {fileID: 1630553432}
 --- !u!114 &1380430002
