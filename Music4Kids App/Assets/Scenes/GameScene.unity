@@ -2185,6 +2185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds: 0
   currentNote: 
+  currentNoteNumber: 0
 --- !u!4 &1397028451
 Transform:
   m_ObjectHideFlags: 0

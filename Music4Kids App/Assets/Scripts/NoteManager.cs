@@ -28,6 +28,7 @@ public class NoteManager : MonoBehaviour
         Debug.Log(notes.Count);
         notes[0].enabled = false;
         int choice = (int)UnityEngine.Random.Range(0, note_arr.Length - 1);
+        GameManager.instance.currentNoteNumber = choice;
         ActivateNote(note_arr[choice]);
     }
 
