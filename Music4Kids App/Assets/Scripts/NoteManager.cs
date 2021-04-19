@@ -15,6 +15,9 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip C1, D1, E1, F1, G1, A2, B2, C2, D2, E2, F2, G2, A3;
 
+    [SerializeField] private Text livesText;
+    [SerializeField] private Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,5 +83,15 @@ public class NoteManager : MonoBehaviour
         {
             audioSource.PlayOneShot(D1);
         }
+    }
+
+    public void UpdateLives(int lives)
+    {
+        livesText.text = "Lives: " + lives;
+    }
+
+    public void UpdateScore(int score)
+    {
+        scoreText.text = "Score: " + score;
     }
 }

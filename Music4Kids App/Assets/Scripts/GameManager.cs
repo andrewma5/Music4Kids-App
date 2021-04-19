@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     private NoteManager notemanager;
 
+    private int lives = 3;
+
+    private int score = 0;
+
 
     private void Awake()
     {
@@ -42,14 +46,27 @@ public class GameManager : MonoBehaviour
 
     public void CheckNote(string n)
     {
+        if (notemanager == null)
+        {
+            notemanager = GameObject.Find("Canvas").transform.GetChild(0).GetComponent<NoteManager>();
+        }
+
         if (string.Equals(n, currentNote))
         {
             int choice = (int)UnityEngine.Random.Range(0, note_arr.Length - 1);
-            if (notemanager == null)
-            {
-                notemanager = GameObject.Find("Canvas").transform.GetChild(0).GetComponent<NoteManager>();
-            }
             notemanager.ActivateNote(note_arr[choice]);
+
+            score++;
+            notemanager.UpdateScore(score);
+        }
+        else
+        {
+            lives--;
+            if (lives == 0)
+            {
+                // Lose
+            }
+            notemanager.UpdateLives(lives);
         }
     }
 }
