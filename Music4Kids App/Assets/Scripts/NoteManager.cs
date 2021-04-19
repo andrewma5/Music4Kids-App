@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,7 +52,7 @@ public class NoteManager : MonoBehaviour
 
     public void ActivateNote(string n)
     {
-        if (GameManager.instance.sounds) PlaySound(n);
+        if (GameManager.instance.sounds) StartCoroutine(PlaySound(n));
 
         foreach (RawImage ri in notes) ri.enabled = false;
         notes[NoteToNumber(n)].enabled = true;
@@ -74,8 +75,10 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    private void PlaySound(string n)
+    private IEnumerator PlaySound(string n)
     {
+        yield return new WaitForSeconds(0.25f);
+
         if (String.Equals(n, "C1"))
         {
             audioSource.PlayOneShot(C1);
