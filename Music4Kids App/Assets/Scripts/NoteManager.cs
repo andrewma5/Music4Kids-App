@@ -84,6 +84,50 @@ public class NoteManager : MonoBehaviour
         {
             audioSource.PlayOneShot(D1);
         }
+        else if (String.Equals(n, "E1"))
+        {
+            audioSource.PlayOneShot(E1);
+        }
+        else if (String.Equals(n, "F1"))
+        {
+            audioSource.PlayOneShot(F1);
+        }
+        else if (String.Equals(n, "G1"))
+        {
+            audioSource.PlayOneShot(G1);
+        }
+        else if (String.Equals(n, "A2"))
+        {
+            audioSource.PlayOneShot(A2);
+        }
+        else if (String.Equals(n, "B2"))
+        {
+            audioSource.PlayOneShot(B2);
+        }
+        else if (String.Equals(n, "C2"))
+        {
+            audioSource.PlayOneShot(C2);
+        }
+        else if (String.Equals(n, "D2"))
+        {
+            audioSource.PlayOneShot(D2);
+        }
+        else if (String.Equals(n, "E2"))
+        {
+            audioSource.PlayOneShot(E2);
+        }
+        else if (String.Equals(n, "F2"))
+        {
+            audioSource.PlayOneShot(F2);
+        }
+        else if (String.Equals(n, "G2"))
+        {
+            audioSource.PlayOneShot(G2);
+        }
+        else if (String.Equals(n, "A3"))
+        {
+            audioSource.PlayOneShot(A3);
+        }
     }
 
     public void UpdateLives(int lives)
