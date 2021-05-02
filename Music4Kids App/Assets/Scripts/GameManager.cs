@@ -6,20 +6,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool sounds;
+    [HideInInspector] public bool sounds;
 
     public string currentNote;
 
     public int currentNoteNumber;
 
     private string[] trebleNotes = { "C1", "D1", "E1", "F1", "G1", "A2", "B2", "C2", "D2", "E2", "F2", "G2", "A3" };
+    private string[] bassNotes = { "E1", "F1", "G1", "A1", "B2", "C2", "D2", "E2", "F2", "G2", "A3", "B3", "C3" };
 
     private TrebleNoteManager trebleNoteManager;
     private BassNoteManager bassNoteManager;
 
     private GameButtons buttons;
 
-    public bool treble = true;
+    [HideInInspector] public bool treble;
 
     private int lives = 3;
 
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        treble = true;
     }
 
     // Start is called before the first frame update
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         if (bassNoteManager == null && !treble)
         {
-
+            bassNoteManager = GameObject.Find("Canvas").transform.GetChild(1).GetComponent<BassNoteManager>();
         }
 
         if (buttons == null)
@@ -89,10 +91,10 @@ public class GameManager : MonoBehaviour
 
     public void SpawnTreble()
     {
-        int choice = (int)UnityEngine.Random.Range(0, trebleNotes.Length - 1);
+        int choice = (int)UnityEngine.Random.Range(0, trebleNotes.Length);
         while (choice == currentNoteNumber)
         {
-            choice = (int)UnityEngine.Random.Range(0, trebleNotes.Length - 1);
+            choice = (int)UnityEngine.Random.Range(0, trebleNotes.Length);
         }
         currentNoteNumber = choice;
         trebleNoteManager.ActivateNote(trebleNotes[choice]);
@@ -100,13 +102,13 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBass()
     {
-        int choice = (int)UnityEngine.Random.Range(0, trebleNotes.Length - 1);
+        int choice = (int)UnityEngine.Random.Range(0, bassNotes.Length);
         while (choice == currentNoteNumber)
         {
-            choice = (int)UnityEngine.Random.Range(0, trebleNotes.Length - 1);
+            choice = (int)UnityEngine.Random.Range(0, bassNotes.Length);
         }
         currentNoteNumber = choice;
-        trebleNoteManager.ActivateNote(trebleNotes[choice]);
+        bassNoteManager.ActivateNote(bassNotes[choice]);
 
     }
 }

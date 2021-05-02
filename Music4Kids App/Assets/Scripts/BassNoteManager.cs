@@ -19,11 +19,15 @@ public class BassNoteManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameManager.instance.treble)
+        {
+            gameObject.SetActive(false);
+        }
+
         foreach (Transform note in transform)
         {
             notes.Add(note.GetComponent<RawImage>());
         }
-        Debug.Log(notes.Count);
         notes[0].enabled = false;
         int choice = (int)UnityEngine.Random.Range(0, note_arr.Length - 1);
         GameManager.instance.currentNoteNumber = choice;
