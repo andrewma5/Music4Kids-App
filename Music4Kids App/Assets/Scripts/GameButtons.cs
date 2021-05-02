@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameButtons : MonoBehaviour
 {
+    [SerializeField] private Text livesText;
+    [SerializeField] private Text scoreText;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +19,15 @@ public class GameButtons : MonoBehaviour
     void Update()
     {
         
+    }
+    public void UpdateLives(int lives)
+    {
+        livesText.text = "Lives: " + lives;
+    }
+
+    public void UpdateScore(int score)
+    {
+        scoreText.text = "Score: " + score;
     }
 
     public void AButton()
