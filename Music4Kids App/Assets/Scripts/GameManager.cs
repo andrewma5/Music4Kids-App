@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private int lives = 3;
 
-    private int score = 0;
+    [HideInInspector] public int score = 0;
 
 
     private void Awake()
@@ -83,7 +84,7 @@ public class GameManager : MonoBehaviour
             lives--;
             if (lives == 0)
             {
-                // Lose
+                Lose();
             }
             buttons.UpdateLives(lives);
         }
@@ -110,5 +111,10 @@ public class GameManager : MonoBehaviour
         currentNoteNumber = choice;
         bassNoteManager.ActivateNote(bassNotes[choice]);
 
+    }
+
+    public void Lose ()
+    {
+        SceneManager.LoadScene("EndScene");
     }
 }
