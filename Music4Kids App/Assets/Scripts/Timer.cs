@@ -40,6 +40,11 @@ public class Timer : MonoBehaviour
 
     private void DecreaseTime()
     {
+        if (minutes == 0 && seconds == 0)
+        {
+            GameManager.instance.Lose();
+        }
+
         if (seconds == 0)
         {
             minutes--;
