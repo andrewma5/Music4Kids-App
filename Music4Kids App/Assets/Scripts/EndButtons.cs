@@ -12,6 +12,8 @@ public class EndButtons : MonoBehaviour
     void Start()
     {
         ScoreDisplay.text = "Score: " + GameManager.instance.score;
+        if (GameManager.instance.score > PlayerPrefs.GetInt("highscore", 0))
+            PlayerPrefs.SetInt("highscore", GameManager.instance.score);
     }
 
     // Update is called once per frame
