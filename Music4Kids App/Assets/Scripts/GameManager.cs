@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [HideInInspector] public bool sounds;
+    [HideInInspector] public int soundLevel;
 
     public string currentNote;
 
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         treble = true;
+        soundLevel = 5;
     }
 
     // Start is called before the first frame update

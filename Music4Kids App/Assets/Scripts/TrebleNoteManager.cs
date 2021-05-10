@@ -80,7 +80,7 @@ public class TrebleNoteManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
 
-        audioSource.PlayOneShot(audioClips[Array.IndexOf(note_arr, n)]);
+        audioSource.PlayOneShot(audioClips[Array.IndexOf(note_arr, n)], (float)GameManager.instance.soundLevel/10f);
 
         /*
         if (String.Equals(n, "C1"))

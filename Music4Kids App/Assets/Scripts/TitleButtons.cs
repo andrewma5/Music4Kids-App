@@ -9,11 +9,15 @@ public class TitleButtons : MonoBehaviour
 
     [SerializeField] private Text SoundText;
     [SerializeField] private GameObject MainButtons, GameOptionsButtons, OptionsButtons;
+    [SerializeField] private Text HighScore;
+    [SerializeField] private Text SoundLevelText;
 
     // Start is called before the first frame update
     void Start()
     {
         GameOptionsButtons.SetActive(false);
+        OptionsButtons.SetActive(false);
+        HighScore.text = "High Score: " + PlayerPrefs.GetInt("highscore", 0);
     }
 
     // Update is called once per frame
@@ -53,5 +57,26 @@ public class TitleButtons : MonoBehaviour
             SoundText.text = "Sound Off";
         }
 
+    }
+
+    public void BackButton ()
+    {
+        OptionsButtons.SetActive(false);
+        MainButtons.SetActive(true);
+    }
+
+    public void IncreaseSound()
+    {
+        if (GameManager.instance.soundLevel < 10)
+            GameManager.instance.soundLevel++;
+        SoundLevelText.text = "Sound: " + GameManager.instance.soundLevel;
+        Debug.Log(GameManager.instance.soundLevel);
+    }
+    public void DecreaseSound()
+    {
+        if (GameManager.instance.soundLevel > 0)
+            GameManager.instance.soundLevel--;
+        SoundLevelText.text = "Sound: " + GameManager.instance.soundLevel;
+        Debug.Log(GameManager.instance.soundLevel);
     }
 }
