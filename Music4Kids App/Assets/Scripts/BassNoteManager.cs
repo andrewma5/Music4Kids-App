@@ -22,6 +22,7 @@ public class BassNoteManager : MonoBehaviour
         if (GameManager.instance.treble)
         {
             gameObject.SetActive(false);
+            return;
         }
 
         foreach (Transform note in transform)

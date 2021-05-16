@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool treble;
 
-    private int lives = 3;
+    [HideInInspector] public int lives = 3;
 
     [HideInInspector] public int score = 0;
 

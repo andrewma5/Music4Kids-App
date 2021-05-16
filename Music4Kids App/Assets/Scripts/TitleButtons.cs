@@ -15,9 +15,11 @@ public class TitleButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MainButtons.SetActive(true);
         GameOptionsButtons.SetActive(false);
         OptionsButtons.SetActive(false);
         HighScore.text = "High Score: " + PlayerPrefs.GetInt("highscore", 0);
+        SoundLevelText.text = "Sound: " + GameManager.instance.soundLevel;
     }
 
     // Update is called once per frame
@@ -30,6 +32,14 @@ public class TitleButtons : MonoBehaviour
     {
         MainButtons.SetActive(false);
         GameOptionsButtons.SetActive(true);
+        OptionsButtons.SetActive(false);
+    }
+
+    public void OptionsButton()
+    {
+        MainButtons.SetActive(false);
+        GameOptionsButtons.SetActive(false);
+        OptionsButtons.SetActive(true);
     }
 
     public void TrebleButton()
@@ -62,6 +72,7 @@ public class TitleButtons : MonoBehaviour
     public void BackButton ()
     {
         OptionsButtons.SetActive(false);
+        GameOptionsButtons.SetActive(false);
         MainButtons.SetActive(true);
     }
 
@@ -70,13 +81,11 @@ public class TitleButtons : MonoBehaviour
         if (GameManager.instance.soundLevel < 10)
             GameManager.instance.soundLevel++;
         SoundLevelText.text = "Sound: " + GameManager.instance.soundLevel;
-        Debug.Log(GameManager.instance.soundLevel);
     }
     public void DecreaseSound()
     {
         if (GameManager.instance.soundLevel > 0)
             GameManager.instance.soundLevel--;
         SoundLevelText.text = "Sound: " + GameManager.instance.soundLevel;
-        Debug.Log(GameManager.instance.soundLevel);
     }
 }
