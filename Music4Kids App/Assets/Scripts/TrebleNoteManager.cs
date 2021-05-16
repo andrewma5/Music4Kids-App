@@ -19,9 +19,12 @@ public class TrebleNoteManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.lives = 3;
+        GameManager.instance.score = 0;
         if (!GameManager.instance.treble)
         {
             gameObject.SetActive(false);
+            return;
         }
 
         foreach (Transform note in transform)
